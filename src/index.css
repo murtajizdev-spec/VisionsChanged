@@ -30,7 +30,7 @@ body {
 }
 
 .card {
-  @apply rounded-2xl border border-zinc-200 bg-white/90 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 dark:border-zinc-800 dark:bg-zinc-900/80;
+  @apply rounded-2xl border border-zinc-200 bg-white/95 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-800/95;
 }
 
 .section-title {
@@ -56,21 +56,26 @@ body {
 
 .heading-primary {
   font-family: "Poppins", system-ui, sans-serif;
-  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-brand mb-4;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
   background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 1px rgba(255, 255, 255, 0.1));
 }
 
 .heading-secondary {
   font-family: "Poppins", system-ui, sans-serif;
-  @apply text-2xl sm:text-3xl font-bold text-brand mb-3;
+  @apply text-2xl sm:text-3xl font-bold mb-3;
+  color: #1E3A8A;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 .heading-tertiary {
   font-family: "Poppins", system-ui, sans-serif;
-  @apply text-xl sm:text-2xl font-semibold text-brand mb-2;
+  @apply text-xl sm:text-2xl font-semibold mb-2;
+  color: #1E3A8A;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
 }
 
 /* Modern form styles */
@@ -78,24 +83,35 @@ body {
   @apply relative;
 }
 .form-input {
-  @apply w-full rounded-xl border border-input/80 bg-white/60 dark:bg-zinc-900/50 px-4 py-3 text-sm shadow-sm transition placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70 focus-visible:border-transparent;
+  @apply w-full rounded-xl border border-input/80 bg-white/90 dark:bg-zinc-800/90 px-4 py-3 text-sm shadow-sm transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70 focus-visible:border-transparent dark:text-zinc-100;
 }
 .form-textarea {
-  @apply w-full rounded-xl border border-input/80 bg-white/60 dark:bg-zinc-900/50 px-4 py-3 text-sm shadow-sm transition placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70 focus-visible:border-transparent;
+  @apply w-full rounded-xl border border-input/80 bg-white/90 dark:bg-zinc-800/90 px-4 py-3 text-sm shadow-sm transition placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70 focus-visible:border-transparent dark:text-zinc-100;
 }
 .form-label {
-  @apply mb-1 block text-xs font-medium text-zinc-600 dark:text-zinc-300;
+  @apply mb-1 block text-xs font-medium text-zinc-700 dark:text-zinc-200;
 }
 .form-hint {
-  @apply mt-1 text-xs text-zinc-500;
+  @apply mt-1 text-xs text-zinc-600 dark:text-zinc-400;
 }
 
 /* Section layout utilities */
 .section {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20;
 }
+
+/* Enhanced text contrast on gradients */
+.gradient-text-safe {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Better stats contrast */
+.stats-text {
+  @apply text-zinc-600 dark:text-zinc-300;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
 .section-lead {
-  @apply mt-3 text-zinc-700 dark:text-zinc-300 max-w-3xl text-lg leading-relaxed;
+  @apply mt-3 text-zinc-700 dark:text-zinc-200 max-w-3xl text-lg leading-relaxed;
 }
 
 /* Hero section styles */
@@ -110,13 +126,14 @@ body {
 }
 
 .hero-subtitle {
-  @apply text-lg sm:text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  @apply text-lg sm:text-xl md:text-2xl text-white leading-relaxed;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
   animation: fadeInUp 1s ease-out 0.5s both;
 }
 
 .hero-description {
-  @apply text-base sm:text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed;
+  @apply text-base sm:text-lg text-white/90 leading-relaxed;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5);
   animation: fadeInUp 1s ease-out 0.7s both;
 }
 
@@ -143,9 +160,17 @@ body {
   @apply mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
 }
 
+/* Enhanced link visibility */
+.text-link {
+  @apply text-brand hover:text-accent transition-colors duration-300;
+  text-decoration-color: rgba(30, 58, 138, 0.3);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 /* Interactive elements */
 .interactive-card {
-  @apply rounded-2xl border border-zinc-200 bg-white/90 backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer p-6 dark:border-zinc-800 dark:bg-zinc-900/80;
+  @apply rounded-2xl border border-zinc-200 bg-white/95 backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer p-6 dark:border-zinc-700 dark:bg-zinc-800/95;
 }
 
 .interactive-card:hover {
@@ -258,13 +283,13 @@ body {
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.850 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(1 0 0 / 20%);
+  --input: oklch(1 0 0 / 25%);
+  --ring: oklch(0.750 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
